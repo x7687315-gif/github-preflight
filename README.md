@@ -1,5 +1,11 @@
 # github-preflight
 
+![License](https://img.shields.io/github/license/x7687315-gif/github-preflight)
+![Stars](https://img.shields.io/github/stars/x7687315-gif/github-preflight)
+![Last Commit](https://img.shields.io/github/last-commit/x7687315-gif/github-preflight)
+![Repo Size](https://img.shields.io/github/repo-size/x7687315-gif/github-preflight)
+![WorkBuddy Skill](https://img.shields.io/badge/WorkBuddy-Skill-blue)
+
 > 工程项目动手写代码之前，先去 GitHub（及论文/文档）调研同类项目的经验，产出"开工前经验报告"再开工。
 
 ## 它解决什么
