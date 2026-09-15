@@ -1,6 +1,6 @@
 ---
 name: github-preflight
-description: 在动手写工程代码之前，先到 GitHub（及论文/文档源）调研同类项目的开源仓库、可复用代码片段、真实踩坑经验与权威资料，产出"开工前经验报告"，避免重复造轮子、提前规避已知坑。触发词：开工前调研、GitHub 找经验、找现成轮子、调研同类项目、技术选型前调研、避免踩坑、找参考实现、项目开始前查资料、别人怎么做过的。
+description: 在动手写工程代码之前，先到 GitHub（及论文/文档源）调研同类项目的开源仓库、可复用代码片段、真实踩坑经验与权威资料，产出"开工前经验报告"，避免重复造轮子、提前规避已知坑。遵循 Agent Skills 开放标准，适用于 WorkBuddy / Claude Code / Codex 等任意兼容客户端。触发词（中英文均可自动触发）：开工前调研、动手前调研、写代码前、编码前、实现前、项目开始前查资料、前期调研、技术调研、方案调研、可行性调研、竞品调研、技术栈调研、库调研、框架选型、库选型、技术选型前调研、GitHub 找经验、找现成轮子、调研同类项目、避免踩坑、找参考实现、参考代码、查资料、参考资料、最佳实践调研、前人经验、踩坑、已知问题、代码样例、实现参考、别人怎么做过的、research before coding、find existing solutions、best practices for、prior art、technical spike、feasibility research、library research、code references、avoid reinventing the wheel。
 ---
 
 # GitHub Preflight — 开工前经验调研
@@ -22,6 +22,14 @@ description: 在动手写工程代码之前，先到 GitHub（及论文/文档�
 2. **三角验证**：一个结论至少 2 个独立来源支持才写进报告；孤立来源标注"待验证"。
 3. **先侦察后开火**：报告必须交给用户过目、确认理解后，才进入编码。
 4. **可信度分级**：官方 > 高星社区 > 个人；近 2 年 > 陈旧；活跃维护 > 僵尸。
+
+## 适用客户端（跨 Agent 适配）
+本技能遵循 **Agent Skills 开放标准**，不绑定任何单一客户端。已在以下环境验证可直接使用：
+- **WorkBuddy**：放入 `~/.workbuddy/skills/github-preflight/`
+- **Claude Code**：放入 `~/.claude/skills/github-preflight/`（或项目内 `.claude/skills/`）
+- **Codex（OpenAI）**：放入客户端对应的 skills 目录（如 `~/.codex/skills/` 或项目 `skills/`，随版本而定）
+
+各客户端触发方式一致：对话中出现上方触发词即自动调用。唯一差异是 skills 目录路径；技能内部的 `SKILL.md` frontmatter 与 `references/` 渐进披露结构三者通用，无需改写。
 
 ## 工作流
 
