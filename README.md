@@ -29,14 +29,18 @@
 ## 目录结构
 ```
 github-preflight/
-├── SKILL.md
-├── README.md
+├── SKILL.md            # 技能主文件（YAML frontmatter + 工作流）
+├── README.md           # 本文件
 ├── references/
-│   ├── search-strategies.md
-│   └── report-template.md
-├── results.tsv
-└── test-prompts.json
+│   ├── search-strategies.md   # 三路检索执行手册 + 可信度分级 + 黑名单
+│   └── report-template.md     # 开工前经验报告模板
+├── results.tsv         # darwin-skill 评估记录（优化本技能时写入）
+└── test-prompts.json   # 3 条冒烟测试 prompt（验证调研覆盖度）
 ```
+
+## 辅助文件说明
+- **`test-prompts.json`**：3 条代表性测试 prompt（本地优先情绪追踪 App、Rust CLI 文件同步工具、RAG 问答系统），每条带"期望调研覆盖"。修改 `SKILL.md` 后跑一遍，确认三路调研（仓库/代码、Issues/踩坑、论文/文档）都能命中，且关键结论有可点击来源。
+- **`results.tsv`**：darwin-skill 对本技能做 8 维评分/自动优化时的结果台账，表头 `timestamp / commit / skill / old_score / new_score / status / dimension / note / eval_mode`。平时为空表头，仅在用 darwin-skill 迭代本技能时追加记录。
 
 ## 许可
 MIT
