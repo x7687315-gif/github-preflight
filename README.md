@@ -4,7 +4,7 @@
 ![Stars](https://img.shields.io/github/stars/x7687315-gif/github-preflight)
 ![Last Commit](https://img.shields.io/github/last-commit/x7687315-gif/github-preflight)
 ![Repo Size](https://img.shields.io/github/repo-size/x7687315-gif/github-preflight)
-![WorkBuddy Skill](https://img.shields.io/badge/WorkBuddy-Skill-blue)
+![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Open%20Standard-blue) ![Cross-client](https://img.shields.io/badge/WorkBuddy%20%7C%20Claude%20Code%20%7C%20Codex-compatible-green)
 
 > 工程项目动手写代码之前，先去 GitHub（及论文/文档）调研同类项目的经验，产出"开工前经验报告"再开工。
 
@@ -15,6 +15,14 @@
 - 准备启动新工程/模块/功能，还没写代码。
 - 想做技术选型、架构设计、库选型，需要外部佐证。
 - 用户说"先看看别人怎么做的""有没有现成轮子""前人踩过什么坑"。
+
+## 兼容性 / 适用客户端
+本技能遵循 **Agent Skills 开放标准**，不是 WorkBuddy 专属——任意兼容该标准的 Agent 客户端都能直接装、直接用：
+- **WorkBuddy**：`~/.workbuddy/skills/github-preflight/`
+- **Claude Code**：`~/.claude/skills/github-preflight/`（或项目 `.claude/skills/`）
+- **Codex（OpenAI）**：客户端对应 skills 目录（如 `~/.codex/skills/` 或项目 `skills/`）
+
+触发方式一致：对话里出现 `SKILL.md` 里的触发词即自动调用。技能内部格式（`SKILL.md` frontmatter + `references/` 渐进披露）三者通用，无需改写。
 
 ## 工作流（Phase 0–5）
 1. 接收项目简报（🔴 确认要素）
@@ -33,6 +41,7 @@ github-preflight/
 ├── README.md           # 本文件
 ├── references/
 │   ├── search-strategies.md   # 三路检索执行手册 + 可信度分级 + 黑名单
+│   ├── query-cheatsheet.md    # 常见技术栈检索 query 速查表
 │   └── report-template.md     # 开工前经验报告模板
 ├── results.tsv         # darwin-skill 评估记录（优化本技能时写入）
 └── test-prompts.json   # 3 条冒烟测试 prompt（验证调研覆盖度）
