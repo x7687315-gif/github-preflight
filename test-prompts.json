@@ -1,17 +1,29 @@
 [
   {
     "id": 1,
+    "mode": "full-report",
     "prompt": "我要做一个本地优先（local-first）的个人情绪追踪 App，端侧跑 ML、不依赖云端。开工前帮我去 GitHub 调研同类项目、现成轮子、踩过的坑，再给开工报告。",
-    "expected": "覆盖仓库/代码、Issues 踩坑、论文/文档三路；给出 Kalman/BOCPD/情境强盗等可复用实现与隐私合规坑"
+    "expected_surfaces": "仓库/代码/Issues/Discussions/PR/外部 六面至少各 1 条查询",
+    "expected_queries": "至少 1 次语义检索（gh search issues --search-type semantic）与 1 次评论检索（in:comments / --match comments）",
+    "expected_output": "① 检索台账（真实 query + 命中 URL）② 按相关性排序的结论 ③ 直接解决问题的方案置顶 ④ Kalman/BOCPD/情境强盗可复用实现 + 隐私合规坑",
+    "must_not": "用 stars:>N 做门槛；编造 URL/仓库/星数；只搜标题正文不搜评论"
   },
   {
     "id": 2,
+    "mode": "full-report",
     "prompt": "我想用 Rust 写一个跨平台 CLI 文件同步工具（类似 rsync + 端到端加密），技术选型前先调研 GitHub 上别人怎么做、有哪些坑。",
-    "expected": "给出 Rust 同步/加密相关库、已知并发/一致性坑、相关论文(Rsync/CRDT)"
+    "expected_surfaces": "六面覆盖，代码面重点用 symbol:/path: 结构搜索 + grep.app",
+    "expected_queries": "含语义检索与评论检索；用 linked:pr / is:closed reason:completed 找已被解决的讨论",
+    "expected_output": "检索台账 + Rust 同步/加密相关库（相关性排序）+ 并发/一致性坑（含评论区捞到的 workaround）+ 相关论文(Rsync/CRDT)",
+    "must_not": "只按星标排序；跳过 Issues 评论"
   },
   {
     "id": 3,
+    "mode": "quick-check",
     "prompt": "我要搭一个 RAG 问答系统，想知道现在主流技术栈、哪些向量库靠谱、常见的检索质量坑。开工前调研。",
-    "expected": "覆盖向量库选型、chunk/检索策略坑、相关 survey 论文与 awesome 列表"
+    "expected_surfaces": "至少覆盖 仓库/代码/Issues/外部 四面",
+    "expected_queries": "至少 1 次语义或 Web 语义检索（Exa/Perplexity）",
+    "expected_output": "精简版：检索台账 + 带链接的结论要点（1 屏内），不产出完整报告",
+    "must_not": "编造来源；不给任何查询证据"
   }
 ]
